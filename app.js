@@ -177,45 +177,60 @@ let html = "";
 
 for (const producto of recetas) {
     html += `
-        <li class="producto">
-            
-            <div class="contenido-receta">
-                <h3>${producto.nombre}</h3>
+        <li class="col">
+            <div class="card h-100 producto text-center">
+                <div class="card-body contenido-receta">
+                    <h3 class="card-title">${producto.nombre}</h3>
 
-                <img
-                src="${producto.imagen}"
-                alt="Fotografía de ${producto.nombre}"
-                class="imagen-receta"
-                >
+                    <img
+                        src="${producto.imagen}"
+                        alt="Fotografía de ${producto.nombre}"
+                        class="imagen-receta rounded-circle mx-auto d-block"
+                    >
 
-                <p>${producto.descripcion}</p>
+                    <p class="card-text">${producto.descripcion}</p>
 
-                <p>
-                    <strong>Dificultad:</strong>
-                    ${producto.dificultad}
-                </p>
+                    <p class="card-text">
+                        <strong>Dificultad:</strong> ${producto.dificultad}
+                    </p>
 
-                <p>
-                    <strong>Tiempo:</strong>
-                    ${producto.tiempoPreparacion} minutos
-                </p>
+                    <p class="card-text">
+                        <strong>Tiempo:</strong> ${producto.tiempoPreparacion} minutos
+                    </p>
 
-                <div>
-                    <strong>Ingredientes:</strong>
-                    <ul>
-                        ${producto.ingredientes.map(ingrediente => `
-                            <li>${ingrediente}</li>
-                        `).join("")}
-                    </ul>
+                    <div>
+                        <strong>Ingredientes:</strong>
+                        <ul class="list-unstyled d-flex flex-wrap justify-content-center gap-2 p-0 mt-2 mb-0">
+                            ${producto.ingredientes.map(ingrediente => `
+                                <li class="rounded-pill px-3 py-1">${ingrediente}</li>
+                            `).join("")}
+                        </ul>
+                    </div>
+
+                    <div class="accordion accordion-flush preparacion" id="acordeon-${producto.id}">
+                        <div class="accordion-item">
+                            <h4 class="accordion-header">
+                                <button class="accordion-button collapsed justify-content-center"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#prep-${producto.id}"
+                                        aria-expanded="false"
+                                        aria-controls="prep-${producto.id}">
+                                    Ver preparación
+                                </button>
+                            </h4>
+                            <div id="prep-${producto.id}" class="accordion-collapse collapse" data-bs-parent="#acordeon-${producto.id}">
+                                <div class="accordion-body text-start">
+                                    <ol>
+                                        ${producto.preparacion.map(paso => `
+                                            <li>${paso}</li>
+                                        `).join("")}
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                                <details class="preparacion">
-                    <summary>Ver preparación</summary>
-                    <ol>
-                        ${producto.preparacion.map(paso => `
-                            <li>${paso}</li>
-                        `).join("")}
-                    </ol>
-                </details>
             </div>
         </li>
     `;
