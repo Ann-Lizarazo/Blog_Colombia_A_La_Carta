@@ -1,6 +1,91 @@
+/* ========================================
+   1. COLORES Y CONFIGURACIÓN GENERAL
+======================================== */
+
+:root {
+    --crema: #F8F0E3;
+    --cafe: #75452F;
+    --caramelo: #DDA15E;
+    --oliva: #606C38;
+    --blanco: #FFFFFF;
+    --texto: #3D332C;
+}
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    font-family: "Open Sans", Arial, sans-serif;
+    background-color: var(--crema);
+    color: var(--texto);
+    line-height: 1.6;
+}
+
 /* Nav Bar */
 
 /* Section Banner */
+/* ========================================
+   3. BANNER PRINCIPAL
+======================================== */
+
+#inicio {
+    min-height: 82vh;
+    padding: 80px 5%;
+
+    background-image:
+        linear-gradient(
+            rgba(61, 51, 44, 0.50),
+            rgba(61, 51, 44, 0.50)
+        ),
+        url("https://cdn.blog.paulinacocina.net/wp-content/uploads/2025/09/comida-costena-colombiana-1758536303.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.contenido-inicio {
+    max-width: 760px;
+    color: var(--blanco);
+}
+
+.contenido-inicio h1 {
+    color: var(--blanco);
+    font-family: "Yellowtail", cursive;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+}
+
+.intro {
+    font-family: "Merriweather", Georgia, serif;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    margin-bottom: 28px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.boton-recetas {
+    background-color: var(--oliva);
+    color: var(--blanco);
+    border: 2px solid var(--blanco);
+    padding: 12px 28px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.boton-recetas:hover {
+    background-color: var(--cafe);
+    color: var(--blanco);
+}
 
 /* NSection Tarjetas */
 
