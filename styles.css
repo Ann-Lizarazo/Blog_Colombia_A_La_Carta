@@ -29,6 +29,47 @@ body {
 
 /* Nav Bar */
 
+:root {
+    --rosado: #f6d3d6;
+    --rosado-fuerte: #e9a3ab;
+    --verde: #16a34a;
+    --verde-oscuro: #15803d;
+    --menta: #e6f8e8;
+    --blanco: #ffffff;
+    --texto: #2a2a2a;
+    --texto-suave: #5a5a5a;
+    --fuente-titulo: "Yellowtail", cursive;
+    --fuente-encabezado: "Merriweather", Georgia, serif;
+    --fuente-texto: "Open Sans", Arial, sans-serif;
+}
+
+/* Nav Bar */
+html { scroll-padding-top: 80px; }
+
+.navbar-colombia {
+    background-color: var(--blanco, #ffffff);
+    border-bottom: 2px solid var(--rosado, #f6d3d6);
+    font-family: var(--fuente-texto, "Open Sans", Arial, sans-serif);
+}
+
+.navbar-colombia .navbar-brand.marca {
+    font-family: var(--fuente-titulo, "Yellowtail", cursive);
+    font-size: 1.9rem;
+    color: var(--verde-oscuro, #15803d);
+}
+
+.navbar-colombia .nav-link {
+    color: var(--texto, #2a2a2a);
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+}
+
+.navbar-colombia .nav-link:hover,
+.navbar-colombia .nav-link:focus {
+    color: var(--verde-oscuro, #15803d);
+    border-bottom-color: var(--verde, #16a34a);
+}
+
 /* Section Banner */
 /* ========================================
    3. BANNER PRINCIPAL
@@ -91,4 +132,174 @@ body {
 
 /* Agency Tech */
 
+
+/* ===== NOSOTROS ===== */
+
+#nosotros.nosotros-section {
+    max-width: 1400px;
+    width: calc(100% - 40px);
+    margin: 24px auto;
+    padding: 32px 16px;
+    background: #fff8ed;
+    border: 1px solid var(--rosado-fuerte);
+    border-radius: 12px;
+    color: var(--texto);
+}
+
+/* Títulos y textos */
+#nosotros h2,
+#nosotros h3,
+#nosotros h4,
+#nosotros h5 {
+    font-family: var(--fuente-encabezado);
+}
+
+#nosotros .texto-acento,
+#nosotros .texto-destacado {
+    color: var(--verde-oscuro);
+}
+
+#nosotros .subtitulo-nosotros {
+    max-width: 650px;
+}
+
+#nosotros p {
+    line-height: 1.7;
+}
+
+/* Imagen del ajiaco */
+#nosotros .imagen-nosotros-wrapper {
+    position: relative;
+    padding-bottom: 18px;
+}
+
+#nosotros .imagen-nosotros {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border: 4px solid var(--blanco);
+    outline: 1px solid var(--rosado-fuerte);
+}
+
+#nosotros .imagen-pie {
+    position: absolute;
+    bottom: 0;
+    left: 12px;
+    right: 12px;
+    padding: 10px;
+    background: var(--blanco);
+    color: var(--verde-oscuro);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* Tarjeta de la agencia */
+#nosotros .agencia-card {
+    background: var(--blanco);
+    border: 1px solid var(--rosado-fuerte);
+}
+
+#nosotros .agencia-lateral {
+    background: var(--rosado);
+    color: var(--verde-oscuro);
+    min-height: 190px;
+}
+
+#nosotros .agencia-icono,
+#nosotros .proposito-icono {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--blanco);
+    color: var(--verde-oscuro);
+    font-size: 1.2rem;
+}
+
+/* Separación del equipo */
+#nosotros .equipo-section {
+    border-top: 1px solid var(--rosado-fuerte);
+}
+
+/* Tarjetas de integrantes */
+#nosotros .integrante-card {
+    height: 100%;
+    background: var(--menta);
+    border: 1px solid #b8dfbf !important;
+    border-top: 4px solid var(--verde-oscuro) !important;
+    transition: transform 0.2s ease;
+}
+
+#nosotros .integrante-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Iniciales */
+#nosotros .avatar-integrante {
+    display: grid;
+    place-items: center;
+    width: 76px;
+    height: 76px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: var(--rosado);
+    border: 3px solid var(--blanco);
+    color: var(--verde-oscuro);
+    font-family: var(--fuente-encabezado);
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+/* Cargos */
+#nosotros .cargo-badge {
+    background: var(--rosado);
+    color: var(--verde-oscuro);
+    white-space: normal;
+}
+
+/* Correo y teléfono */
+#nosotros .contacto-integrante {
+    padding-top: 14px;
+    border-top: 1px solid #b8dfbf;
+}
+
+#nosotros .dato-integrante {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+    overflow-wrap: anywhere;
+}
+
+#nosotros .dato-integrante i {
+    margin-top: 4px;
+    color: var(--verde-oscuro);
+}
+
+#nosotros .dato-integrante a {
+    color: var(--texto-suave);
+    text-decoration: none;
+}
+
+#nosotros .dato-integrante a:hover {
+    color: var(--verde-oscuro);
+    text-decoration: underline;
+}
+
 /* Footer */
+
+.footer-colombia {
+    background: var(--verde-oscuro, #15803d);
+    color: var(--blanco, #ffffff);
+    font-family: var(--fuente-texto, "Open Sans", Arial, sans-serif);
+}
+
+.footer-colombia p { margin: 0 0 6px; font-size: 1.05rem; }
+.footer-colombia .fa-heart { color: var(--rosado, #f6d3d6); }
+.footer-colombia small { opacity: 0.85; }
+.footer-colombia a { color: var(--blanco, #ffffff); text-decoration: none; }
+.footer-colombia a:hover { color: var(--rosado, #f6d3d6); }
+.footer-colombia .redes-sociales a { font-size: 1.5rem; }
