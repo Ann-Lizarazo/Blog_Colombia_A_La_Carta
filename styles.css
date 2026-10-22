@@ -147,7 +147,24 @@ html { scroll-padding-top: 80px; }
 .contenido-receta strong { color: var(--verde-oscuro); }
 .contenido-receta ul { margin: 8px 0 0; padding: 0; }  /* ingredientes en fila: el flex lo aplican las clases de Bootstrap */
 .contenido-receta ul li { background: var(--rosado); border-radius: 999px; padding: 2px 12px; font-size: 0.82rem; color: var(--texto); }  /* cada ingrediente como "pastilla" */
- 
+
+
+
+/* Títulos de las secciones Pasos y Recetas */
+#pasos h2,
+#recetas h2 {
+    font-family: var(--fuente-encabezado);   /* Merriweather */
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--texto);
+}
+
+/* Fondo blanco para Pasos (Recetas ya tiene el verde menta) */
+#pasos {
+    background: var(--blanco);
+}
+
+
 /* Agency Tech */
 #nosotros.nosotros-section {
     max-width: 1400px;
