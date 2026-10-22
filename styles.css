@@ -1,5 +1,46 @@
 /* Nav Bar */
 
+:root {
+    --rosado: #f6d3d6;
+    --rosado-fuerte: #e9a3ab;
+    --verde: #16a34a;
+    --verde-oscuro: #15803d;
+    --menta: #e6f8e8;
+    --blanco: #ffffff;
+    --texto: #2a2a2a;
+    --texto-suave: #5a5a5a;
+    --fuente-titulo: "Yellowtail", cursive;
+    --fuente-encabezado: "Merriweather", Georgia, serif;
+    --fuente-texto: "Open Sans", Arial, sans-serif;
+}
+
+/* Nav Bar */
+html { scroll-padding-top: 80px; }
+
+.navbar-colombia {
+    background-color: var(--blanco, #ffffff);
+    border-bottom: 2px solid var(--rosado, #f6d3d6);
+    font-family: var(--fuente-texto, "Open Sans", Arial, sans-serif);
+}
+
+.navbar-colombia .navbar-brand.marca {
+    font-family: var(--fuente-titulo, "Yellowtail", cursive);
+    font-size: 1.9rem;
+    color: var(--verde-oscuro, #15803d);
+}
+
+.navbar-colombia .nav-link {
+    color: var(--texto, #2a2a2a);
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+}
+
+.navbar-colombia .nav-link:hover,
+.navbar-colombia .nav-link:focus {
+    color: var(--verde-oscuro, #15803d);
+    border-bottom-color: var(--verde, #16a34a);
+}
+
 /* Section Banner */
 
 /* NSection Tarjetas */
@@ -7,3 +48,16 @@
 /* Agency Tech */
 
 /* Footer */
+
+.footer-colombia {
+    background: var(--verde-oscuro, #15803d);
+    color: var(--blanco, #ffffff);
+    font-family: var(--fuente-texto, "Open Sans", Arial, sans-serif);
+}
+
+.footer-colombia p { margin: 0 0 6px; font-size: 1.05rem; }
+.footer-colombia .fa-heart { color: var(--rosado, #f6d3d6); }
+.footer-colombia small { opacity: 0.85; }
+.footer-colombia a { color: var(--blanco, #ffffff); text-decoration: none; }
+.footer-colombia a:hover { color: var(--rosado, #f6d3d6); }
+.footer-colombia .redes-sociales a { font-size: 1.5rem; }
