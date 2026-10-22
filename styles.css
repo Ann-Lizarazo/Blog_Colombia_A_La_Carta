@@ -127,14 +127,28 @@ html { scroll-padding-top: 80px; }
     background-color: var(--cafe);
     color: var(--blanco);
 }
-
-/* NSection Tarjetas */
-
+ 
+/* Section Tarjetas */
+ 
+/* ===== PASOS: distribución mediante Bootstrap ===== */
+/* ===== PASOS: (row-cols-), aspecto */
+.pasos { max-width: 1000px; }
+.paso-icono { width: 120px; height: 120px; margin: 0 auto 16px; border-radius: 50%; display: grid; place-items: center; font-size: 2.6rem; color: var(--verde-oscuro); background: var(--rosado); border: 6px solid var(--blanco); box-shadow: 0 0 0 2px var(--rosado-fuerte); }  /* border-radius 50% = círculo */
+.paso-numero { width: 36px; height: 36px; margin: 0 auto 10px; border-radius: 50%; display: grid; place-items: center; background: var(--verde); color: var(--blanco); font-weight: 700; font-size: 1.1rem; }
+.paso p { margin: 0; font-size: 0.95rem; color: var(--texto-suave); }
+ 
+/* ===== RECETAS: */
+#recetas { background: var(--menta); }
+.receta { max-width: 1200px; }
+.producto { --bs-card-bg: var(--blanco); --bs-card-border-color: #cfeed4; --bs-card-border-radius: 14px; background: var(--blanco); border-radius: 14px; border: 1px solid #cfeed4; padding: 28px 24px; text-align: center; }
+.contenido-receta h3 { font-family: var(--fuente-encabezado); font-size: 1.3rem; margin: 0 0 16px; }
+.imagen-receta { width: 180px; height: 180px; object-fit: cover; border-radius: 50%; margin: 0 auto 18px; border: 5px solid var(--rosado); }  /* object-fit: la foto se recorta sin deformarse */
+.contenido-receta p { margin: 0 0 10px; font-size: 0.95rem; }
+.contenido-receta strong { color: var(--verde-oscuro); }
+.contenido-receta ul { margin: 8px 0 0; padding: 0; }  /* ingredientes en fila: el flex lo aplican las clases de Bootstrap */
+.contenido-receta ul li { background: var(--rosado); border-radius: 999px; padding: 2px 12px; font-size: 0.82rem; color: var(--texto); }  /* cada ingrediente como "pastilla" */
+ 
 /* Agency Tech */
-
-
-/* ===== NOSOTROS ===== */
-
 #nosotros.nosotros-section {
     max-width: 1400px;
     width: calc(100% - 40px);
