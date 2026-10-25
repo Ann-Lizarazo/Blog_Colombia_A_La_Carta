@@ -1,34 +1,4 @@
-/* ========================================
-   1. COLORES Y CONFIGURACIÓN GENERAL
-======================================== */
-
-:root {
-    --crema: #F8F0E3;
-    --cafe: #75452F;
-    --caramelo: #DDA15E;
-    --oliva: #606C38;
-    --blanco: #FFFFFF;
-    --texto: #3D332C;
-}
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 90px;
-}
-
-body {
-    margin: 0;
-    font-family: "Open Sans", Arial, sans-serif;
-    background-color: var(--crema);
-    color: var(--texto);
-    line-height: 1.6;
-}
-
-/* Nav Bar */
-
+/* ===== COLORES Y LETRAS (también se conectan con las variables de Bootstrap) ===== */
 :root {
     --rosado: #f6d3d6;
     --rosado-fuerte: #e9a3ab;
@@ -41,296 +11,116 @@ body {
     --fuente-titulo: "Yellowtail", cursive;
     --fuente-encabezado: "Merriweather", Georgia, serif;
     --fuente-texto: "Open Sans", Arial, sans-serif;
+
+    /* Variables de Bootstrap con nuestros colores y fuente */
+    --bs-body-font-family: var(--fuente-texto);
+    --bs-body-color: var(--texto);
+    --bs-body-line-height: 1.6;
+    --bs-link-color: var(--verde-oscuro);
+    --bs-link-hover-color: var(--verde);
+    --bs-heading-color: inherit;   /* Bootstrap pinta los títulos de gris oscuro; aquí heredan el color como antes */
 }
 
-/* Nav Bar */
-html { scroll-padding-top: 80px; }
+/* ===== BASE ===== */
+html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+a:focus-visible, .btn:focus-visible, .btn-preparacion:focus-visible,
+.navbar-toggler:focus-visible { outline: 3px solid var(--verde-oscuro); outline-offset: 3px; box-shadow: none; }
 
-.navbar-colombia {
-    background-color: var(--blanco, #ffffff);
-    border-bottom: 2px solid var(--rosado, #f6d3d6);
-    font-family: var(--fuente-texto, "Open Sans", Arial, sans-serif);
-}
+/* Bootstrap pone los títulos en peso 500; el diseño original usaba negrilla (700) */
+h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: inherit; }
+h2 { font-family: var(--fuente-encabezado); font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.25; margin: 0 0 40px; }
+section { padding: 72px 5%; }
+section > .container { max-width: 1200px; padding-left: 0; padding-right: 0; }
 
-.navbar-colombia .navbar-brand.marca {
-    font-family: var(--fuente-titulo, "Yellowtail", cursive);
-    font-size: 1.9rem;
-    color: var(--verde-oscuro, #15803d);
-}
+/* ===== MENÚ SUPERIOR ===== */
+header .navbar { padding: 12px 5%; }
+header { z-index: 10; background: rgba(255, 255, 255, 0.95); border-bottom: 1px solid var(--rosado); }
+.marca { padding: 0; margin: 0; font-family: var(--fuente-titulo); font-size: 1.9rem; color: var(--verde-oscuro) !important; }
+.navbar-nav .nav-link { color: var(--texto); font-weight: 600; padding: 4px 0; border-bottom: 2px solid transparent; }
+.navbar-nav .nav-link:hover { color: var(--verde-oscuro); border-bottom-color: var(--verde); }
 
-.navbar-colombia .nav-link {
-    color: var(--texto, #2a2a2a);
-    font-weight: 600;
-    border-bottom: 2px solid transparent;
-}
-
-.navbar-colombia .nav-link:hover,
-.navbar-colombia .nav-link:focus {
-    color: var(--verde-oscuro, #15803d);
-    border-bottom-color: var(--verde, #16a34a);
-}
-
-/* Section Banner */
-/* ========================================
-   3. BANNER PRINCIPAL
-======================================== */
-
+/* ===== INICIO ===== */
 #inicio {
     min-height: 82vh;
     padding: 80px 5%;
-
-    background-image:
-        linear-gradient(
-            rgba(61, 51, 44, 0.50),
-            rgba(61, 51, 44, 0.50)
-        ),
-        url("https://cdn.blog.paulinacocina.net/wp-content/uploads/2025/09/comida-costena-colombiana-1758536303.jpg");
-
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: linear-gradient(rgba(70, 25, 35, 0.40), rgba(70, 25, 35, 0.40)),
+        url("https://cdn.blog.paulinacocina.net/wp-content/uploads/2025/09/comida-costena-colombiana-1758536303.jpg") center / cover no-repeat;
+    background-color: var(--rosado);
 }
+.contenido-inicio { max-width: 760px; }
+.contenido-inicio h1 { font-family: var(--fuente-titulo); font-weight: 400; font-size: clamp(3rem, 9vw, 5.5rem); line-height: 1.05; margin: 0 0 20px; text-shadow: 0 3px 12px rgba(0, 0, 0, 0.35); }
+.intro { margin: 0 auto 28px; font-family: var(--fuente-encabezado); font-size: clamp(1.05rem, 2vw, 1.3rem); text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); }
+.boton-recetas { padding: 12px 28px; border-radius: 4px; background: var(--verde-oscuro); color: var(--blanco); font-weight: 700; border: 0; }
+.boton-recetas:hover, .boton-recetas:focus { background: var(--verde); color: var(--blanco); }
 
-.contenido-inicio {
-    max-width: 760px;
-    color: var(--blanco);
-}
+/* ===== PASOS ===== */
+.pasos { max-width: 1000px; --bs-gutter-x: 2rem; --bs-gutter-y: 2rem; }
+.paso-icono { width: 120px; height: 120px; border-radius: 50%; display: grid; place-items: center; font-size: 2.6rem; color: var(--verde-oscuro); background: var(--rosado); border: 6px solid var(--blanco); box-shadow: 0 0 0 2px var(--rosado-fuerte); }
+.paso-numero { margin: 0 auto 10px; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--verde); color: var(--blanco); font-weight: 700; font-size: 1.1rem; }
+.paso p { font-size: 0.95rem; color: var(--texto-suave); }
 
-.contenido-inicio h1 {
-    color: var(--blanco);
-    font-family: "Yellowtail", cursive;
-    font-size: clamp(3rem, 8vw, 5.5rem);
-    line-height: 1.1;
-    margin-bottom: 20px;
-    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
-}
-
-.intro {
-    font-family: "Merriweather", Georgia, serif;
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    margin-bottom: 28px;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-}
-
-.boton-recetas {
-    background-color: var(--oliva);
-    color: var(--blanco);
-    border: 2px solid var(--blanco);
-    padding: 12px 28px;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
-}
-
-.boton-recetas:hover {
-    background-color: var(--cafe);
-    color: var(--blanco);
-}
- 
-/* Section Tarjetas */
- 
-/* ===== PASOS: distribución mediante Bootstrap ===== */
-/* ===== PASOS: (row-cols-), aspecto */
-.pasos { max-width: 1000px; }
-.paso-icono { width: 120px; height: 120px; margin: 0 auto 16px; border-radius: 50%; display: grid; place-items: center; font-size: 2.6rem; color: var(--verde-oscuro); background: var(--rosado); border: 6px solid var(--blanco); box-shadow: 0 0 0 2px var(--rosado-fuerte); }  /* border-radius 50% = círculo */
-.paso-numero { width: 36px; height: 36px; margin: 0 auto 10px; border-radius: 50%; display: grid; place-items: center; background: var(--verde); color: var(--blanco); font-weight: 700; font-size: 1.1rem; }
-.paso p { margin: 0; font-size: 0.95rem; color: var(--texto-suave); }
- 
-/* ===== RECETAS: */
+/* ===== RECETAS ===== */
 #recetas { background: var(--menta); }
-.receta { max-width: 1200px; }
-.producto { --bs-card-bg: var(--blanco); --bs-card-border-color: #cfeed4; --bs-card-border-radius: 14px; background: var(--blanco); border-radius: 14px; border: 1px solid #cfeed4; padding: 28px 24px; text-align: center; }
+#receta { --bs-gutter-x: 1.75rem; --bs-gutter-y: 1.75rem; }
+.producto { background: var(--blanco); border-radius: 14px; border: 1px solid #cfeed4; padding: 28px 24px; text-align: center; height: 100%; }
 .contenido-receta h3 { font-family: var(--fuente-encabezado); font-size: 1.3rem; margin: 0 0 16px; }
-.imagen-receta { width: 180px; height: 180px; object-fit: cover; border-radius: 50%; margin: 0 auto 18px; border: 5px solid var(--rosado); }  /* object-fit: la foto se recorta sin deformarse */
+.imagen-receta { width: 180px; height: 180px; object-fit: cover; border-radius: 50%; margin: 0 auto 18px; border: 5px solid var(--rosado); }
 .contenido-receta p { margin: 0 0 10px; font-size: 0.95rem; }
 .contenido-receta strong { color: var(--verde-oscuro); }
-.contenido-receta ul { margin: 8px 0 0; padding: 0; }  /* ingredientes en fila: el flex lo aplican las clases de Bootstrap */
-.contenido-receta ul li { background: var(--rosado); border-radius: 999px; padding: 2px 12px; font-size: 0.82rem; color: var(--texto); }  /* cada ingrediente como "pastilla" */
+.ingredientes { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+.ingredientes li { background: var(--rosado); border-radius: 999px; padding: 2px 12px; font-size: 0.82rem; }
 
+/* Preparación: desplegable (Bootstrap collapse) */
+.preparacion { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--rosado); text-align: left; }
+.btn-preparacion { display: block; width: 100%; padding: 0; border: 0; background: none; font-weight: 700; color: var(--verde-oscuro); text-align: center; }
+.btn-preparacion:hover { color: var(--verde); }
+.btn-preparacion::before { content: "▸ "; }
+.btn-preparacion[aria-expanded="true"]::before { content: "▾ "; }
+.preparacion ol { margin: 12px 0 0; padding-left: 22px; font-size: 0.9rem; color: var(--texto-suave); }
+.preparacion ol li { margin-bottom: 6px; }
 
+/* ===== NOSOTROS ===== */
+#nosotros { padding-top: 56px; padding-bottom: 56px; }
+.contenido-nosotros { max-width: 1100px; margin: 0 auto; background: var(--menta); border: 1px solid #cfeed4; border-radius: 24px; padding: 48px 40px; }
+.contenido-nosotros > .row { --bs-gutter-x: 3rem; --bs-gutter-y: 2rem; }
+.texto-nosotros h2 { margin-bottom: 20px; }
+.texto-nosotros h2::after { content: ""; display: block; width: 70px; height: 4px; margin-top: 12px; border-radius: 2px; background: var(--rosado-fuerte); }
+.texto-nosotros p { max-width: 60ch; font-size: 1.05rem; margin-bottom: 14px; }
+.imagen-circular { width: min(100%, 420px); aspect-ratio: 1; object-fit: cover; border-radius: 50%; border: 8px solid var(--rosado); }
 
-/* Títulos de las secciones Pasos y Recetas */
-#pasos h2,
-#recetas h2 {
-    font-family: var(--fuente-encabezado);   /* Merriweather */
-    font-weight: 700;
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    color: var(--texto);
+.tarjeta-agencia { max-width: 860px; background: var(--blanco); border: 2px solid var(--rosado); border-radius: 24px; padding: 40px 32px; }
+.tarjeta-agencia h3 { font-family: var(--fuente-encabezado); font-weight: 700; font-size: 1.5rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--verde-oscuro); margin: 0 0 14px; }
+.tarjeta-agencia p { max-width: 62ch; margin: 0 auto 12px; }
+
+/* Equipo */
+.integrantes { margin-top: calc(var(--bs-gutter-y) + 36px); }
+.integrantes h3 { font-family: var(--fuente-encabezado); font-size: 1.5rem; margin: 0 0 28px; }
+.integrante { background: var(--menta); border: 1px solid #cfeed4; border-radius: 14px; padding: 28px 20px; transition: transform 0.3s, box-shadow 0.3s; }
+.integrante:hover { transform: translateY(-6px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); }
+.avatar-integrante { width: 80px; height: 80px; border-radius: 50%; display: grid; place-items: center; font-family: var(--fuente-encabezado); font-weight: 700; font-size: 1.5rem; color: var(--verde-oscuro); background: var(--rosado); border: 5px solid var(--blanco); box-shadow: 0 0 0 2px var(--rosado-fuerte); }
+.integrante h4 { font-family: var(--fuente-encabezado); font-size: 1.05rem; line-height: 1.3; margin: 0 0 6px; }
+.integrante .cargo { color: var(--verde-oscuro); font-weight: 700; margin: 0 0 12px; }
+.integrante .dato { font-size: 0.82rem; color: var(--texto-suave); margin: 0 0 4px; word-break: break-word; }
+.integrante .dato i { color: var(--verde); margin-right: 4px; }
+
+/* ===== FOOTER ===== */
+footer { background: var(--verde-oscuro); color: var(--blanco); padding: 40px 5%; }
+footer p { font-size: 1.05rem; margin: 0 0 6px; }
+footer .fa-heart { color: var(--rosado); }
+footer small { opacity: 0.85; }
+.redes-sociales { margin-top: 20px; gap: 12px 28px; }
+.redes-sociales a { color: var(--blanco); text-decoration: none; }
+.redes-sociales a:hover { color: var(--rosado); }
+.redes-sociales i { margin-right: 6px; }
+
+/* ===== CELULAR ===== */
+@media (max-width: 767.98px) {
+    section { padding: 56px 6%; }
+    .contenido-nosotros > .row { --bs-gutter-x: 1rem; }
+    .contenido-nosotros { padding: 32px 20px; }
+    .texto-nosotros h2::after { margin-left: auto; margin-right: auto; }
+    .imagen-circular { width: min(100%, 300px); }
 }
 
-/* Fondo blanco para Pasos (Recetas ya tiene el verde menta) */
-#pasos {
-    background: var(--blanco);
-}
-
-
-/* Agency Tech */
-#nosotros.nosotros-section {
-    max-width: 1400px;
-    width: calc(100% - 40px);
-    margin: 24px auto;
-    padding: 32px 16px;
-    background: #fff8ed;
-    border: 1px solid var(--rosado-fuerte);
-    border-radius: 12px;
-    color: var(--texto);
-}
-
-/* Títulos y textos */
-#nosotros h2,
-#nosotros h3,
-#nosotros h4,
-#nosotros h5 {
-    font-family: var(--fuente-encabezado);
-}
-
-#nosotros .texto-acento,
-#nosotros .texto-destacado {
-    color: var(--verde-oscuro);
-}
-
-#nosotros .subtitulo-nosotros {
-    max-width: 650px;
-}
-
-#nosotros p {
-    line-height: 1.7;
-}
-
-/* Imagen del ajiaco */
-#nosotros .imagen-nosotros-wrapper {
-    position: relative;
-    padding-bottom: 18px;
-}
-
-#nosotros .imagen-nosotros {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    border: 4px solid var(--blanco);
-    outline: 1px solid var(--rosado-fuerte);
-}
-
-#nosotros .imagen-pie {
-    position: absolute;
-    bottom: 0;
-    left: 12px;
-    right: 12px;
-    padding: 10px;
-    background: var(--blanco);
-    color: var(--verde-oscuro);
-    border-radius: 8px;
-    font-size: 0.85rem;
-    text-align: center;
-}
-
-/* Tarjeta de la agencia */
-#nosotros .agencia-card {
-    background: var(--blanco);
-    border: 1px solid var(--rosado-fuerte);
-}
-
-#nosotros .agencia-lateral {
-    background: var(--rosado);
-    color: var(--verde-oscuro);
-    min-height: 190px;
-}
-
-#nosotros .agencia-icono,
-#nosotros .proposito-icono {
-    display: grid;
-    place-items: center;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: var(--blanco);
-    color: var(--verde-oscuro);
-    font-size: 1.2rem;
-}
-
-/* Separación del equipo */
-#nosotros .equipo-section {
-    border-top: 1px solid var(--rosado-fuerte);
-}
-
-/* Tarjetas de integrantes */
-#nosotros .integrante-card {
-    height: 100%;
-    background: var(--menta);
-    border: 1px solid #b8dfbf !important;
-    border-top: 4px solid var(--verde-oscuro) !important;
-    transition: transform 0.2s ease;
-}
-
-#nosotros .integrante-card:hover {
-    transform: translateY(-4px);
-}
-
-/* Iniciales */
-#nosotros .avatar-integrante {
-    display: grid;
-    place-items: center;
-    width: 76px;
-    height: 76px;
-    margin: 0 auto;
-    border-radius: 50%;
-    background: var(--rosado);
-    border: 3px solid var(--blanco);
-    color: var(--verde-oscuro);
-    font-family: var(--fuente-encabezado);
-    font-size: 1.4rem;
-    font-weight: 700;
-}
-
-/* Cargos */
-#nosotros .cargo-badge {
-    background: var(--rosado);
-    color: var(--verde-oscuro);
-    white-space: normal;
-}
-
-/* Correo y teléfono */
-#nosotros .contacto-integrante {
-    padding-top: 14px;
-    border-top: 1px solid #b8dfbf;
-}
-
-#nosotros .dato-integrante {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    margin-bottom: 10px;
-    font-size: 0.8rem;
-    overflow-wrap: anywhere;
-}
-
-#nosotros .dato-integrante i {
-    margin-top: 4px;
-    color: var(--verde-oscuro);
-}
-
-#nosotros .dato-integrante a {
-    color: var(--texto-suave);
-    text-decoration: none;
-}
-
-#nosotros .dato-integrante a:hover {
-    color: var(--verde-oscuro);
-    text-decoration: underline;
-}
-
-/* Footer */
-
-.footer-colombia {
-    background: var(--verde-oscuro, #15803d);
-    color: var(--blanco, #ffffff);
-    font-family: var(--fuente-texto, "Open Sans", Arial, sans-serif);
-}
-
-.footer-colombia p { margin: 0 0 6px; font-size: 1.05rem; }
-.footer-colombia .fa-heart { color: var(--rosado, #f6d3d6); }
-.footer-colombia small { opacity: 0.85; }
-.footer-colombia a { color: var(--blanco, #ffffff); text-decoration: none; }
-.footer-colombia a:hover { color: var(--rosado, #f6d3d6); }
-.footer-colombia .redes-sociales a { font-size: 1.5rem; }
+/* Accesibilidad: sin desplazamiento suave si la persona desactivó las animaciones */
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
